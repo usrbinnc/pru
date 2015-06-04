@@ -7,7 +7,7 @@ Dir.glob("*.txt").each do |filename|
 
   commands = [
     %Q{say -f #{filename} -v Daniel -o #{basename}.aiff >/dev/null},
-    %Q{lame -b 192 #{basename}.aiff #{basename}.mp3}
+    %Q{lame -b 192 #{basename}.aiff --ta "Netcat Samples" --tl "Samplez" #{basename}.mp3}
   ]
 
   commands.each do |command|
@@ -15,3 +15,5 @@ Dir.glob("*.txt").each do |filename|
     system(command)
   end
 end
+
+system("rm *.aiff")
